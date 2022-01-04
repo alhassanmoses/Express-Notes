@@ -17,8 +17,9 @@ class Note(db.Model):
     def __repr__(self) -> str:
         return "<Note %r>" %self.id 
 
-@app.route("/")
+@app.route("/", methods = ['POST','GET'])
 def default():
+
     return render_template("index.html")
 
 if __name__ == "__main__":

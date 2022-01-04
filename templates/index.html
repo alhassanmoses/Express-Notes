@@ -1,9 +1,44 @@
 {% extends "base.html" %}
 
 {% block head %}
-<h1>Some Title</h1>
+<h1> Express Notes </h1>
 {% endblock %}
 
 {% block body %} 
-<p>A fancy body</p>
+
+<div class = "content">
+
+    
+    
+    <table>
+        <tr>
+            <th>Note</th>
+            <th>Title</th>
+            <th>Added </th>
+            <th>Actions</th>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                
+                <a href="">Update</a>
+                <br>
+                <a href="">Delete</a>
+             </td >
+        </tr>
+    </table>
+
+    <br><br>
+
+    <form action="/" method="POST">
+        Title: <input type="text" name="title" id="title">
+
+        Note: <input type="text" name="content" id="content">
+
+        <input type="submit" value="Add Note">
+    </form>
+</div>
 {% endblock %}
