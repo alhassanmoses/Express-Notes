@@ -6,6 +6,12 @@
 
 {% block body %} 
 
+{% if notes|length < 1 %}
+
+<h2 style="text-align: center;"> Hi! Kindly provide a title and note to begin. </h2>
+
+{% else %}
+
 <div class = "content">
 
     
@@ -33,7 +39,10 @@
         </tr>
 
         {% endfor %}
+
     </table>
+
+    {% endif %}
 
     <br><br>
 
