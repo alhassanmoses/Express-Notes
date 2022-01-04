@@ -61,8 +61,26 @@ def delete_note(note_id):
 
 
 @app.route('/update/<int:note_id>', methods=['GET', 'POST'])
-def update_note():
-    pass
+def update_note(note_id):
+
+    target_note = Note.query.get_or_404(note_id)
+    
+    if request.method == "POST":
+
+        target_note.title = request.form['title']
+        target_note.content = request.form['content']
+
+        try:
+            db.session.commit()
+
+            return redirect("/")
+        
+        except:
+            return "Sorry, an error occured while updating the specified note"
+
+    else:
+
+        return render_template("update.html", note=target_note)
 
 if __name__ == "__main__":
     app.run(debug=True)
