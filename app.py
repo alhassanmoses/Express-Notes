@@ -44,5 +44,25 @@ def default():
 
         return render_template("index.html", notes=notes)
 
+
+@app.route("/delete/<int:note_id>")
+def delete_note(note_id):
+    
+    target_note = Note.query.get_or_404(note_id)
+
+    try:
+        db.session.delete(target_note)
+        db.session.commit()
+
+        return redirect("/")
+
+    except:
+        return "Sorry, an error occured while deleting the specified note"
+
+
+@app.route('/update/<int:note_id>', methods=['GET', 'POST'])
+def update_note():
+    pass
+
 if __name__ == "__main__":
     app.run(debug=True)

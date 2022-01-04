@@ -28,7 +28,7 @@
                 
                 <a href="">Update</a>
                 <br>
-                <a href="">Delete</a>
+                <a href="/delete/{{note.id}}">Delete</a>
              </td >
         </tr>
 
@@ -38,9 +38,14 @@
     <br><br>
 
     <form action="/" method="POST">
+
         Title: <input type="text" name="title" id="title">
 
+        <br><br>
+
         Note: <input type="text" name="content" id="content">
+
+        <br><br>
 
         <input type="submit" value="Add Note">
     </form>
